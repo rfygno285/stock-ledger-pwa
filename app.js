@@ -196,10 +196,13 @@ function seedExample(){
   $("f_market").value = "TW";
   $("f_side").value = "BUY";
   $("f_symbol").value = "2330";
-  const today = new Date();
-  const d = `${today.getFullYear()}-${pad2(today.getMonth()+1)}-${pad2(today.getDate())}`;
+
+  const now = new Date();
+  const d = `${now.getFullYear()}-${pad2(now.getMonth()+1)}-${pad2(now.getDate())}`;
+  const t = `${pad2(now.getHours())}:${pad2(now.getMinutes())}`;
+
   $("f_date").value = d;
-  $("f_time").value = "09:30";
+  $("f_time").value = t;
   $("f_qty").value = "100";
   $("f_price").value = "586";
   $("f_fee").value = "20";

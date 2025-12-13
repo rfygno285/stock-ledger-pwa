@@ -37,6 +37,25 @@
     .split{ display:flex; gap:10px; flex-wrap:wrap; }
     .split > *{ flex:1 1 260px; }
     a{ color:var(--blue); }
+/* 讓 iOS date / time 在 PWA 裡看起來正常、不跑版 */
+.ios-input {
+  width: 100%;
+  height: 44px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+/* 讓 date / time 在 iOS 顯示為「整個欄位可點」 */
+input[type="date"],
+input[type="time"] {
+  min-height: 44px;
+}
+
   </style>
 </head>
 <body>
@@ -75,16 +94,17 @@
         <label>股票代號</label>
         <input id="f_symbol" placeholder="例如：2330 或 AAPL" />
 
-        <div class="row">
-          <div>
-            <label>日期（點一下用選的）</label>
-            <input id="f_date" type="date" inputmode="none" />
-          </div>
-          <div>
-            <label>時間（點一下用選的，可留空）</label>
-            <input id="f_time" type="time" inputmode="none" step="60" />
-          </div>
-        </div>
+<div class="form-row">
+  <div class="form-field">
+    <label>日期</label>
+    <input id="tradeDate" type="date" class="ios-input">
+  </div>
+
+  <div class="form-field">
+    <label>時間</label>
+    <input id="tradeTime" type="time" class="ios-input">
+  </div>
+</div>
 
         <div class="row">
           <div>

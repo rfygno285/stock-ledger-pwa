@@ -52,13 +52,10 @@
   color:#666;
   margin-bottom:8px;
 }
-
-/* 移除重複的 field-input 樣式，統一使用通用的 input 樣式 */
-/*
 .field-input{
   width:100%;
   height:52px;
-  padding:12px 14px; 
+  padding:12px 14px;
   font-size:18px;
   border-radius:16px;
   border:1px solid #e5e5ea;
@@ -69,26 +66,9 @@
   max-width:100%;
   min-width:0;
 }
-*/
-
-/* 專門修正日期/時間的溢出問題 */
 input[type="date"], input[type="time"]{
   -webkit-appearance:auto;
   appearance:auto;
-  
-  /* 應用通用 input 樣式 (12px 圓角) */
-  width:100%; 
-  padding:12px 12px; 
-  border:1px solid var(--line); 
-  border-radius:12px; 
-  font-size:16px; 
-  background:#fff;
-  box-sizing: border-box; /* 確保內邊距和邊框計算在寬度內 */
-
-  /* 由於您希望日期和時間顯示較大的字體和圓角，我將它覆寫並統一 */
-  font-size:18px; 
-  border-radius:16px; 
-  padding:12px 14px; /* 內邊距和圓角使用您原本 field-input 的設定 */
 }
 
 input, select, button { max-width:100%; }
@@ -108,6 +88,7 @@ input, select, button { max-width:100%; }
   </header>
 
   <div class="wrap">
+    <!-- ADD -->
     <section id="tab-add">
       <div class="card">
         <div class="row">
@@ -130,16 +111,16 @@ input, select, button { max-width:100%; }
         <label>股票代號</label>
         <input id="f_symbol" placeholder="例如：2330 或 AAPL" />
 
-        <div class="row" style="margin-top:10px;"> 
-          <div>
-            <label for="f_date">日期</label>
-            <input id="f_date" type="date" /> 
-          </div>
-          <div>
-            <label for="f_time">時間</label>
-            <input id="f_time" type="time" />
-          </div>
+                <div class="form-field">
+          <label for="f_date">日期</label>
+          <input id="f_date" type="date" class="field-input" />
         </div>
+
+        <div class="form-field">
+          <label for="f_time">時間</label>
+          <input id="f_time" type="time" class="field-input" />
+        </div>
+
         <div class="row">
           <div>
             <label>數量</label>
@@ -162,6 +143,7 @@ input, select, button { max-width:100%; }
       </div>
     </section>
 
+    <!-- QUERY -->
     <section id="tab-query" hidden>
       <div class="card split">
         <div>
@@ -195,7 +177,7 @@ input, select, button { max-width:100%; }
               <th>#</th><th>日期</th><th>買/賣</th><th>數量</th><th>價格</th><th>交易後庫存</th><th>平均成本</th>
             </tr>
           </thead>
-          <tbody></input>
+          <tbody></tbody>
         </table>
       </div>
 
@@ -204,6 +186,7 @@ input, select, button { max-width:100%; }
       </div>
     </section>
 
+    <!-- HOLDINGS -->
     <section id="tab-holdings" hidden>
       <div class="card">
         <div class="btnrow">
@@ -220,6 +203,7 @@ input, select, button { max-width:100%; }
       </div>
     </section>
 
+    <!-- BACKUP -->
     <section id="tab-backup" hidden>
       <div class="card">
         <div class="btnrow">
@@ -237,6 +221,7 @@ input, select, button { max-width:100%; }
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="tab-about" hidden>
       <div class="card">
         <p style="margin-top:0; line-height:1.7;">
